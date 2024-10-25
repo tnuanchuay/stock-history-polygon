@@ -8,7 +8,8 @@ pub struct Polygon {
 
 #[derive(Debug, Deserialize)]
 pub struct TickerResponse {
-    pub results: Vec<Ticker>,
+    pub results: Option<Vec<Ticker>>,
+    pub error: Option<String>,
 }
 #[derive(Debug, Deserialize)]
 pub struct Ticker {
