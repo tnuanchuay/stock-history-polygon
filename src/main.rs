@@ -48,6 +48,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let symbols = env::var("SYMBOLS")?;
     for sym in symbols.split(",").collect::<Vec<&str>>() {
+        println!("{}", sym);
         let record_or_error = get_ticker(api_key.to_owned(), sym.to_string(), start.to_owned(), end.to_owned()).await;
         if record_or_error.is_err() {
             println!("Error getting symbol: {}\n{}", sym, record_or_error.unwrap_err());
